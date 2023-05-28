@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../pages/splashPages/splash_screen.dart';
+import '../pages/userPages/base_view.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -8,6 +11,7 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -16,7 +20,7 @@ class _MyWidgetState extends State<MyWidget> {
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.lightBlueAccent,
+              color: Colors.deepPurple,
             ),
             child: Text(
               'Happy Shop',
@@ -29,15 +33,40 @@ class _MyWidgetState extends State<MyWidget> {
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Ana Sayfa'),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const BaseView(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.category),
             title: const Text('Kategoriler'),
             onTap: () {},
           ),
+          ListTile(
+            leading: const Icon(Icons.arrow_back),
+            title: const Text("Out"),
+            onTap: () {
+              signOutUser();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SplashScreenWidget(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
+  }
+
+  void signOutUser() async {
+    await _auth.signOut();
+    debugPrint("Log Out");
   }
 }

@@ -24,20 +24,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: const MyWidget(),
       appBar: AppBar(
-        leading: Builder(builder: (BuildContext context) {
-          return IconButton(
-            onPressed: () {
-              signOutUser();
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SplashScreenWidget(),
-                ),
-              );
-            },
-            icon: const Icon(Icons.arrow_back),
-          );
-        }),
         title: const Text("AnaSayfa"),
         centerTitle: true,
       ),
@@ -68,10 +54,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void signOutUser() async {
-    await _auth.signOut();
-    debugPrint("oturum sonlandırılı");
-  }
+
 }
 
 Widget _buildCategoryList(

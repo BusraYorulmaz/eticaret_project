@@ -66,7 +66,7 @@ class NavigationDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.arrow_back_sharp),
-              title:const Text("çıkış"),
+              title:const Text("out"),
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => const AdminUserPages(),

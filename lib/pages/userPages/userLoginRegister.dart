@@ -221,11 +221,11 @@ class _UserLoginPageState extends State<UserLoginPage> {
               children: <Widget>[
                 TextField(
                   decoration: InputDecoration(
-                      hintText: 'bodySize'.tr, icon: Icon(Icons.boy_rounded)),
+                      hintText: 'bodySize'.tr, icon: const Icon(Icons.boy_rounded)),
                 ),
                 TextField(
                   decoration: InputDecoration(
-                      hintText: 'shoeSize'.tr, icon: Icon(Icons.snowshoeing)),
+                      hintText: 'shoeSize'.tr, icon: const Icon(Icons.snowshoeing)),
                 ),
                 TextButton(
                     onPressed: () {
