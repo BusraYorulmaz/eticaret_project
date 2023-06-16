@@ -22,7 +22,7 @@ class product_controller {
     return exists;
   }
 
-  //isim var ise adet i artır.
+ 
   Future<void> increaseAdetIfExists(
       String isim, String size1, int adetArtis) async {
     var querySnapshot = await _product.where('isim', isEqualTo: isim).get();

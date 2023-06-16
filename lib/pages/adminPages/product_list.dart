@@ -136,27 +136,49 @@ class _ProductListState extends State<ProductList> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(records["kategori"] +
-                                              "Kategorisi"),
+                                              " Kategorisi"),
                                           Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.end,
-                                            children: const [
-                                              // for (var i = 0;
-                                              //     i <
-                                              //         records["sizes"]
-                                              //             .toString()
-                                              //             .length;
-                                              //     i++)
+                                            children: [
+                                              if (records["sizes"] == null ||
+                                                  records["sizes"].isEmpty)
+                                                const Text(
+                                                    "Tek beden mevcuttur.")
+                                              else
+                                                Column(
+                                                  children: [
+                                                    for (var i = 0;
+                                                        i <
+                                                            records["sizes"]
+                                                                .length;
+                                                        i++)
+                                                      Text(
+                                                        records["sizes"][i]
+                                                                ["size1"] +
+                                                            " - " +
+                                                            records["sizes"][i]
+                                                                    ["adet"]
+                                                                .toString() +
+                                                            " Adet",
+                                                      ),
+                                                  ],
+                                                ),
 
-                                              // Text(records["sizes"][i]["size1"] +
-                                              //     " - " +
-                                              //     records["sizes"][i]["adet"]
-                                              //         .toString() +
-                                              //     " Adet")
+                                              //   for (var i = 0;
+                                              //        i <
+                                              //         records["sizes"].length;
+                                              //       i++)
+
+                                              //    Text(records["sizes"][i]["size1"] +
+                                              //        " - " +
+                                              //        records["sizes"][i]["adet"]
+                                              //            .toString() +
+                                              //        " Adet")
                                             ],
                                           )
                                         ],
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),

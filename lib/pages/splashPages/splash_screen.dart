@@ -1,11 +1,9 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:eticaret_project/constants/constant.dart';
 import 'package:eticaret_project/pages/userPages/base_view.dart';
 import 'package:eticaret_project/pages/userPages/userLoginRegister.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../adminPages/admin_login.dart';
-import 'package:page_transition/page_transition.dart';
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({Key? key}) : super(key: key);
@@ -177,6 +175,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
     );
   }
 
+  String? value;
   openInformationPopup() => showDialog(
         context: context,
         builder: ((context) => SimpleDialog(
@@ -191,17 +190,24 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                       icon: const Icon(Icons.boy_rounded)),
                 ),
                 TextField(
+                  onChanged: (text) {
+                    value = text;
+                  },
                   decoration: InputDecoration(
                       hintText: 'shoeSize'.tr,
                       icon: const Icon(Icons.snowshoeing)),
                 ),
                 TextButton(
                     onPressed: () {
-                      // Navigator.pop(context);
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(builder: (_) => const BaseView()),
-                          (route) => false);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => BaseView(),
+                        ),
+                      );
+                      // Navigator.pushAndRemoveUntil(
+                      //     context,
+                      //     MaterialPageRoute(builder: (_) => const BaseView()),
+                      //     (route) => false);
                     },
                     child: Text('okey'.tr)),
               ],

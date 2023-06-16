@@ -66,9 +66,10 @@ class Messages extends Translations {
           "kvkk_and_terms_of_use": "KVKK and terms of use",
           "sign_out": "Sign Out",
           "hatali": "Email or password is incorrect",
+          "add_to_Basket": "Add Basket",
           "sameEposta":
               "Email address is already in use by another account. Try again with another email address.",
-              "hata":"WARNING"
+          "hata": "WARNING"
         },
         'tr_TR': {
           "title": "MUTLU ALIŞVERİŞ",
@@ -137,7 +138,7 @@ class Messages extends Translations {
           "sameEposta":
               "E-posta adresi zaten başka bir hesap tarafından kullanılıyor. Başka bir e-posta adresi ile tekrar deneyin.",
           "hatali": "E-posta veya şifre yanlış",
-          "hata":"HATA"
+          "hata": "HATA"
         }
       };
 }
