@@ -34,9 +34,11 @@ class _HomePageState extends State<HomePage> {
             final documents = snapshot.data!.docs;
             final kiyafetDocuments = documents
                 .where((document) => document['kategori'] == 'Kıyafetler')
+                 .where((element) => element['size1']=='Small')
                 .toList();
             final ayakkabiDocuments = documents
                 .where((document) => document['kategori'] == 'Ayakkabılar')
+                .where((element) => element['size1'] == '42')
                 .toList();
 
             return ListView(
@@ -53,8 +55,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-
 }
 
 Widget _buildCategoryList(

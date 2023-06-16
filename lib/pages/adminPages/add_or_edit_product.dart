@@ -121,9 +121,7 @@ class _ManageProductState extends State<ManageProduct> {
                         "Add Product",
                         style: TextStyle(fontSize: 28),
                       )),
-            const SizedBox(
-              height: 10
-            ),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Form(
@@ -232,18 +230,20 @@ class _ManageProductState extends State<ManageProduct> {
                           .then((value) {
                         Fluttertoast.showToast(msg: "Ürün Güncellendi");
                       });
-                    } else {                      
+                    } else {
                       product_controller()
                           .add_product(
-                              product_model(
-                                fiyat: fiyat.text,
-                                isim: isim.text,
-                                adet: adet.text,
-                                kategori: selectedBodyorShoe,
-                                size: selectedSize,
-                                image: productImage,
-                              ),
-                              productImage!,int.parse(adet.text),)
+                        product_model(
+                          fiyat: fiyat.text,
+                          isim: isim.text,
+                          adet: adet.text,
+                          kategori: selectedBodyorShoe,
+                          size: selectedSize,
+                          image: productImage,
+                        ),
+                        productImage!,
+                        int.parse(adet.text),
+                      )
                           .then((value) {
                         Fluttertoast.showToast(msg: "Ürün Eklendi");
                       });
@@ -251,7 +251,9 @@ class _ManageProductState extends State<ManageProduct> {
                     Navigator.pop(context);
                   }
                 },
-                child: iseditingmode == true ?const Text("Update") :const Text("Save"))
+                child: iseditingmode == true
+                    ? const Text("Update")
+                    : const Text("Save"))
           ],
         )),
       ),

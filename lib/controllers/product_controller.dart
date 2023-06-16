@@ -21,15 +21,33 @@ class product_controller {
     }
     return exists;
   }
+
   //isim var ise adet i artır.
-  Future<void> increaseAdetIfExists(String isim, int adetArtis) async{
+  Future<void> increaseAdetIfExists(
+      String isim, String size1, int adetArtis) async {
     var querySnapshot = await _product.where('isim', isEqualTo: isim).get();
-    if (querySnapshot.docs.isNotEmpty) {
+    var querySnapshotsize =
+        await _product.where('size1', isEqualTo: size1).get();
+    if (querySnapshot.docs.isNotEmpty && querySnapshotsize.docs.isEmpty) {
+      print("aynı ürün var ve beden yok ");
+
       var documentSnapshot = querySnapshot.docs.first;
-      var existingAdet = documentSnapshot['adet'] ?? '0' ;
-      var edit= int.parse(existingAdet);
-      var updateAdet = (edit +adetArtis).toString();
-      await documentSnapshot.reference.update({'adet':updateAdet});
+      var existingSizes = documentSnapshot['sizes'] ?? [];
+
+      // Yeni bedeni (size1) ve adet miktarını (adetMik) ekle
+      existingSizes.add({
+        'size1': size1,
+        'adet': adetArtis,
+      });
+
+      await documentSnapshot.reference.update({'sizes': existingSizes});
+    } else {
+      print("aynı İSİMLİ ürün var");
+      var documentSnapshot = querySnapshot.docs.first;
+      var existingAdet = documentSnapshot['adet'] ?? '0';
+      var edit = int.parse(existingAdet);
+      var updateAdet = (edit + adetArtis).toString();
+      await documentSnapshot.reference.update({'adet': updateAdet});
     }
   }
 
@@ -38,6 +56,7 @@ class product_controller {
       "isim": model.isim,
       "kategori": model.kategori,
       "size1": model.size,
+      "sizes":null,
       "adet": model.adet,
       "fiyat": model.fiyat,
       "image": mediaUrl
@@ -45,11 +64,12 @@ class product_controller {
   }
 
   // add data to firebase
-  Future add_product(product_model product, PickedFile pickedFile, int adetMik) async {
+  Future add_product(
+      product_model product, PickedFile pickedFile, int adetMik) async {
     bool exists = await checkIfDataExists(product.isim);
     if (exists) {
       print("var olan kayıt");
-    await increaseAdetIfExists(product.isim,adetMik);
+      await increaseAdetIfExists(product.isim, product.size, adetMik);
     } else {
       if (pickedFile == null) {
         mediaUrl = '';

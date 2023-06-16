@@ -124,7 +124,9 @@ class _ProductListState extends State<ProductList> {
                                           Text("Fiyat: " +
                                               records["fiyat"] +
                                               "₺"),
-                                          Text(records["adet"].toString() +
+                                          Text(records["size1"] +
+                                              " - " +
+                                              records["adet"].toString() +
                                               " Adet"),
                                         ],
                                       ),
@@ -133,9 +135,26 @@ class _ProductListState extends State<ProductList> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text("Kategori: " +
-                                              records["kategori"]),
-                                          Text("Beden: " + records["size1"]),
+                                          Text(records["kategori"] +
+                                              "Kategorisi"),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: const [
+                                              // for (var i = 0;
+                                              //     i <
+                                              //         records["sizes"]
+                                              //             .toString()
+                                              //             .length;
+                                              //     i++)
+
+                                              // Text(records["sizes"][i]["size1"] +
+                                              //     " - " +
+                                              //     records["sizes"][i]["adet"]
+                                              //         .toString() +
+                                              //     " Adet")
+                                            ],
+                                          )
                                         ],
                                       )
                                     ],
