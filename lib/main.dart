@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home:  AdminPage(),
+      home: AdminPage(),
     );
   }
 }

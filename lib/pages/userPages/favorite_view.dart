@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_color.dart';
@@ -15,6 +15,7 @@ class _FavoriteViewState extends State<FavoriteView> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade100,
       appBar: AppBar(
         title: Text("favorites_".tr),
         centerTitle: true,
@@ -31,7 +32,7 @@ class _FavoriteViewState extends State<FavoriteView> {
             childAspectRatio: 0.78,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          itemCount: 10,
+          itemCount: 4,
           itemBuilder: (context, index) {
             return Stack(
               clipBehavior: Clip.none,
@@ -44,7 +45,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Colors.grey.shade200,
+                      color: Colors.white,
                     ),
                     child: Column(
                       children: [

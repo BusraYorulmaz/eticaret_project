@@ -1,6 +1,6 @@
- // ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors
 
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
   final labledtext, hintedtext;
@@ -13,21 +13,23 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
       controller: mycontroller,
-      validator: (value){
-        if(value!.isEmpty){
+      validator: (value) {
+        if (value!.isEmpty) {
           return "the $labledtext is required";
         }
       },
       
-      decoration:   InputDecoration(
+      decoration: InputDecoration(
+        
         labelText: labledtext,
         hintText: hintedtext,
-        enabledBorder: const  OutlineInputBorder(
-            borderSide: BorderSide(width: 3, color: Colors.blue)),
+        enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(width: 3, color: Colors.deepPurple)),
         focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(width: 3, color: Colors.blue)),
-        errorBorder:const OutlineInputBorder(
+        errorBorder: const OutlineInputBorder(
             borderSide: BorderSide(width: 3, color: Colors.red)),
         focusedErrorBorder: OutlineInputBorder(
             borderSide: BorderSide(width: 3, color: Colors.red)),

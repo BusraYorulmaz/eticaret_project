@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../pages/adminPages/adminPage.dart';
 import '../pages/splashPages/splash_screen.dart';
 import '../pages/userPages/base_view.dart';
+import '../pages/userPages/clothesPage.dart';
+import '../pages/userPages/shoes.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -45,7 +48,9 @@ class _MyWidgetState extends State<MyWidget> {
           ListTile(
             leading: const Icon(Icons.category),
             title: const Text('Kategoriler'),
-            onTap: () {},
+            onTap: () {
+              showCategoryOptions();
+            },
           ),
           ListTile(
             leading: const Icon(Icons.arrow_back),
@@ -68,5 +73,43 @@ class _MyWidgetState extends State<MyWidget> {
   void signOutUser() async {
     await _auth.signOut();
     debugPrint("Log Out");
+  }
+
+  void showCategoryOptions() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Kategoriler'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text('Kıyafetler'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ClothesPage(), // Kıyafetler sayfası
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Ayakkabılar'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ShoesPage(), // Ayakkabılar sayfası
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

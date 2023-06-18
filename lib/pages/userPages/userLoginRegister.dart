@@ -22,6 +22,7 @@ class _WidgetUserAndRegisterState extends State<WidgetUserAndRegister> {
       length: 2,
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: Color(0xffF8E8EE),
           body: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
@@ -139,6 +140,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xffF8E8EE),
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -154,10 +156,12 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
+                      
                       controller: _emailController, //email kontrolü
                       cursorColor: Colors.pink,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
+                        
                         prefixIcon: const Icon(Icons.email),
                         border: const OutlineInputBorder(),
                         labelText: 'eposta'.tr,
@@ -221,11 +225,13 @@ class _UserLoginPageState extends State<UserLoginPage> {
               children: <Widget>[
                 TextField(
                   decoration: InputDecoration(
-                      hintText: 'bodySize'.tr, icon: const Icon(Icons.boy_rounded)),
+                      hintText: 'bodySize'.tr,
+                      icon: const Icon(Icons.boy_rounded)),
                 ),
                 TextField(
                   decoration: InputDecoration(
-                      hintText: 'shoeSize'.tr, icon: const Icon(Icons.snowshoeing)),
+                      hintText: 'shoeSize'.tr,
+                      icon: const Icon(Icons.snowshoeing)),
                 ),
                 TextButton(
                     onPressed: () {
@@ -261,6 +267,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xffF8E8EE),
         body: Center(
           child: SingleChildScrollView(
             child: Padding(

@@ -100,6 +100,7 @@ class _ManageProductState extends State<ManageProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffF8E8EE),
       appBar: AppBar(
           title: iseditingmode == true
               ? const Text("Editing Product")
@@ -156,7 +157,7 @@ class _ManageProductState extends State<ManageProduct> {
                         child: const Icon(
                           Icons.image,
                           size: 30,
-                          color: Colors.green,
+                          color: Colors.deepPurple,
                         ),
                       ),
                     ],

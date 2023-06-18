@@ -70,6 +70,7 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade100,
       body: Stack(
         children: [
           Positioned(
@@ -109,44 +110,19 @@ class _ProfileViewState extends State<ProfileView> {
             child: SafeArea(
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, bottom: 20),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(100),
-                      onTap: () {}, //=> selectPhoto(),
-                      child: Container(
-                        width: size.width * 0.3,
-                        height: size.width * 0.3,
-                        decoration: const BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                blurRadius: 10,
-                              ),
-                            ]),
-                        child: Icon(Icons.add_a_photo),
-                      ),
-                    ),
-                  ),
-                  const Text(
-                    "Büşra Yorulmaz",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                  ),
                   SizedBox(
-                    height: size.height * 0.1,
+                    height: size.height * 0.3,
                   ),
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
                       padding: EdgeInsets.only(left: 30),
                       child: Text(
-                        "Ayarlar",
+                        "AYARLAR",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
-                            fontSize: 12),
+                            fontSize: 18),
                       ),
                     ),
                   ),

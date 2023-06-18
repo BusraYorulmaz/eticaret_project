@@ -32,7 +32,10 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           FloatingActionButton(
-                            child: const Icon(Icons.language),
+                            child: const Icon(
+                              Icons.language,
+                              color: Color(0xffF8E8EE),
+                            ),
                             onPressed: () {
                               Get.updateLocale(
                                 Get.locale == const Locale('tr', 'TR')
@@ -63,7 +66,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
   Text _splashTitleText() {
     return const Text(
       "HAPPY SHOP",
-      style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 60),
+      style: TextStyle(color: Colors.deepPurple, fontSize: 60),
     );
   }
 
@@ -82,17 +85,17 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
         alignment: Alignment.bottomCenter,
         child: Container(
           width: size.width,
-          height: size.height * 0.40,
+          height: size.height * 0.30,
           decoration: const BoxDecoration(
-            color: Colors.deepPurpleAccent,
+            color: Colors.deepPurple,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50),
-              topRight: Radius.circular(50),
+              topLeft: Radius.circular(0),
+              topRight: Radius.circular(70),
             ),
           ),
           child: Column(
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 35),
               _userLoginButton(size, context),
               const SizedBox(height: 10),
               _adminLoginButton(size, context),
@@ -112,8 +115,11 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
             (route) => false);
       },
       child: Card(
-        elevation: 50,
-        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(70),
+        ),
+        elevation: 10,
+        color: Colors.blueGrey.shade100,
         child: SizedBox(
           height: 60,
           width: 250,
@@ -137,8 +143,11 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
             (route) => false);
       },
       child: Card(
-        elevation: 50,
-        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(70),
+        ),
+        elevation: 10,
+        color: const Color(0xffF8E8EE),
         child: SizedBox(
           height: 60,
           width: 250,
@@ -163,12 +172,14 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
         child: Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black),
-            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.transparent),
           ),
           child: Text(
             'skip'.tr,
-            style: const TextStyle(color: Colors.black, fontSize: 18),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
           ),
         ),
       ),
@@ -179,6 +190,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
   openInformationPopup() => showDialog(
         context: context,
         builder: ((context) => SimpleDialog(
+              backgroundColor: Colors.white,
               title: Text(
                 'your_informaiton'.tr,
                 textAlign: TextAlign.center,
@@ -204,10 +216,6 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                           builder: (context) => BaseView(),
                         ),
                       );
-                      // Navigator.pushAndRemoveUntil(
-                      //     context,
-                      //     MaterialPageRoute(builder: (_) => const BaseView()),
-                      //     (route) => false);
                     },
                     child: Text('okey'.tr)),
               ],
@@ -219,7 +227,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
       constraints: BoxConstraints(maxWidth: size.width * 0.9),
       child: Text(
         'explanation'.tr,
-        style: const TextStyle(color: Colors.black, fontSize: 26),
+        style: const TextStyle(color: Colors.black, fontSize: 20),
       ),
     );
   }

@@ -18,6 +18,7 @@ class _BasketViewState extends State<BasketView> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade100,
       appBar: AppBar(
         title: Text("basket".tr),
         centerTitle: true,
@@ -47,14 +48,7 @@ class _BasketViewState extends State<BasketView> {
               fiyat: "30,50",
               isim: "Kıyafet 2",
               url: "assets/images/gomlek2.jpg"),
-          urunListe(
-              aciklama:
-                  "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-              adet: "1",
-              fiyat: "150",
-              isim: "Kıyafet 3",
-              url: "assets/images/gomlek3.jpg"),
-          const SizedBox(height: 5),
+          const SizedBox(height: 195),
           Row(
             children: [
               Column(
@@ -159,7 +153,7 @@ Widget urunListe(
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        fiyat + " ₺",
+                        fiyat + "₺",
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -169,56 +163,56 @@ Widget urunListe(
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        print("Arttır");
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.green,
-                          ),
-                        ),
-                        child: const Icon(
-                          Icons.add,
-                          size: 18,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Text(
-                        adet,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        print("Azalt");
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.red,
-                          ),
-                        ),
-                        child: const Icon(
-                          Icons.remove,
-                          size: 18,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // Column(
+                //   children: [
+                //     GestureDetector(
+                //       onTap: () {
+                //         print("Arttır");
+                //       },
+                //       child: Container(
+                //         padding: const EdgeInsets.all(6),
+                //         decoration: BoxDecoration(
+                //           shape: BoxShape.circle,
+                //           border: Border.all(
+                //             color: Colors.green,
+                //           ),
+                //         ),
+                //         child: const Icon(
+                //           Icons.add,
+                //           size: 18,
+                //         ),
+                //       ),
+                //     ),
+                //     Padding(
+                //       padding: const EdgeInsets.symmetric(vertical: 4),
+                //       child: Text(
+                //         adet,
+                //         style: const TextStyle(
+                //           fontWeight: FontWeight.w600,
+                //           fontSize: 18,
+                //         ),
+                //       ),
+                //     ),
+                //     GestureDetector(
+                //       onTap: () {
+                //         print("Azalt");
+                //       },
+                //       child: Container(
+                //         padding: const EdgeInsets.all(6),
+                //         decoration: BoxDecoration(
+                //           shape: BoxShape.circle,
+                //           border: Border.all(
+                //             color: Colors.red,
+                //           ),
+                //         ),
+                //         child: const Icon(
+                //           Icons.remove,
+                //           size: 18,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),

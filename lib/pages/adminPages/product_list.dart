@@ -28,6 +28,7 @@ class _ProductListState extends State<ProductList> {
       child: Column(
         children: [
           Container(
+            color: Color(0xffF8E8EE),
             height: height,
             child: StreamBuilder(
               stream: widget._urun.snapshots(),
@@ -48,142 +49,128 @@ class _ProductListState extends State<ProductList> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 10),
                         child: Slidable(
-                            startActionPane: ActionPane(
-                              motion: StretchMotion(),
-                              children: [
-                                SlidableAction(
-                                  onPressed: (context) {
-                                    final product = product_model(
-                                      id: records.id,
-                                      isim: records["isim"],
-                                      fiyat: records["fiyat"],
-                                      adet: records["adet"],
-                                    );
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (((context) =>
-                                                ManageProduct(
-                                                  product: product,
-                                                  index: index,
-                                                )))));
-                                  },
-                                  icon: Icons.edit_note,
-                                  backgroundColor: Colors.blue,
-                                )
-                              ],
+                          startActionPane: ActionPane(
+                            motion: StretchMotion(),
+                            children: [
+                              SlidableAction(
+                                onPressed: (context) {
+                                  final product = product_model(
+                                    id: records.id,
+                                    isim: records["isim"],
+                                    fiyat: records["fiyat"],
+                                    adet: records["adet"],
+                                  );
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (((context) => ManageProduct(
+                                                product: product,
+                                                index: index,
+                                              )))));
+                                },
+                                icon: Icons.edit_note,
+                                backgroundColor: Colors.blue,
+                              )
+                            ],
+                          ),
+                          endActionPane: ActionPane(
+                            motion: StretchMotion(),
+                            children: [
+                              SlidableAction(
+                                onPressed: (context) {
+                                  product_controller().delete_product(
+                                      product_model(id: records.id));
+                                },
+                                icon: Icons.delete,
+                                backgroundColor: Colors.red,
+                              ),
+                            ],
+                          ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            endActionPane: ActionPane(
-                              motion: StretchMotion(),
-                              children: [
-                                SlidableAction(
-                                  onPressed: (context) {
-                                    product_controller().delete_product(
-                                        product_model(id: records.id));
-                                  },
-                                  icon: Icons.delete,
-                                  backgroundColor: Colors.red,
+                            child: Card(
+                              elevation: 10,
+                              child: ListTile(
+                                tileColor: Colors.transparent,
+                                title: Text(
+                                  "Urun Adı: " + records["isim"],
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              ],
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                color: Colors.deepPurple,
-                                width: 2,
-                              )),
-                              child: Card(
-                                child: ListTile(
-                                  tileColor: Colors.purple[200],
-                                  title: Text(
-                                    "Urun Adı: " + records["isim"],
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          //Resim
-                                          CircleAvatar(
-                                            backgroundImage:
-                                                NetworkImage(records['image']),
-                                            radius: height * 0.06,
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Fiyat: " +
-                                              records["fiyat"] +
-                                              "₺"),
-                                          Text(records["size1"] +
-                                              " - " +
-                                              records["adet"].toString() +
-                                              " Adet"),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(records["kategori"] +
-                                              " Kategorisi"),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              if (records["sizes"] == null ||
-                                                  records["sizes"].isEmpty)
-                                                const Text(
-                                                    "Tek beden mevcuttur.")
-                                              else
-                                                Column(
-                                                  children: [
-                                                    for (var i = 0;
-                                                        i <
-                                                            records["sizes"]
-                                                                .length;
-                                                        i++)
-                                                      Text(
-                                                        records["sizes"][i]
-                                                                ["size1"] +
-                                                            " - " +
-                                                            records["sizes"][i]
-                                                                    ["adet"]
-                                                                .toString() +
-                                                            " Adet",
-                                                      ),
-                                                  ],
-                                                ),
-
-                                              //   for (var i = 0;
-                                              //        i <
-                                              //         records["sizes"].length;
-                                              //       i++)
-
-                                              //    Text(records["sizes"][i]["size1"] +
-                                              //        " - " +
-                                              //        records["sizes"][i]["adet"]
-                                              //            .toString() +
-                                              //        " Adet")
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                subtitle: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        //Resim
+                                        CircleAvatar(
+                                          backgroundImage:
+                                              NetworkImage(records['image']),
+                                          radius: height * 0.06,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                            "Fiyat: " + records["fiyat"] + "₺"),
+                                        Text(records["size1"] +
+                                            " - " +
+                                            records["adet"].toString() +
+                                            " Adet"),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(records["kategori"] +
+                                            " Kategorisi"),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: [
+                                            if (records["sizes"] == null ||
+                                                records["sizes"].isEmpty)
+                                              const Text("Tek beden mevcuttur.")
+                                            else
+                                              Column(
+                                                children: [
+                                                  for (var i = 0;
+                                                      i <
+                                                          records["sizes"]
+                                                              .length;
+                                                      i++)
+                                                    Text(
+                                                      records["sizes"][i]
+                                                              ["size1"] +
+                                                          " - " +
+                                                          records["sizes"][i]
+                                                                  ["adet"]
+                                                              .toString() +
+                                                          " Adet",
+                                                    ),
+                                                ],
+                                              ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                            )),
+                            ),
+                          ),
+                        ),
                       );
                     },
                   );

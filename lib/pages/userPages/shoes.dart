@@ -1,58 +1,45 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../../components/draver-main.dart';
-import '../splashPages/splash_screen.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ShoesPage extends StatefulWidget {
+  const ShoesPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ShoesPage> createState() => _ShoesPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int activeCampaingsIndex = 0;
-
-  //firebase
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
+class _ShoesPageState extends State<ShoesPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    double screenWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: Colors.blueGrey.shade100,
-      drawer: const MyWidget(),
-      appBar: AppBar(
-        title: const Text("AnaSayfa"),
-        centerTitle: true,
-      ),
-      body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection('urun').snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final documents = snapshot.data!.docs;
-            final kiyafetDocuments = documents
-                .where((document) => document['kategori'] == 'Kıyafetler')
-                .where((element) => element['size1'] == 'Small')
-                .toList();
-            final ayakkabiDocuments = documents
-                .where((document) => document['kategori'] == 'Ayakkabılar')
-                .where((element) => element['size1'] == '42')
-                .toList();
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color(0xffF8E8EE),
+        appBar: AppBar(
+          title: const Text("Ayakkabılar"),
+          centerTitle: true,
+        ),
+        body: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance.collection('urun').snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final documents = snapshot.data!.docs;
+              final ayakkabiDocuments = documents
+                  .where((document) => document['kategori'] == 'Ayakkabılar')
+                  .toList();
 
-            return ListView(
-              children: [
-                _buildCategoryList('KIYAFETLER', kiyafetDocuments),
-                _buildCategoryList('AYAKKABILAR', ayakkabiDocuments),
-              ],
-            );
-          } else if (snapshot.hasError) {
-            return Text('Hata: ${snapshot.error}');
-          }
-          return CircularProgressIndicator();
-        },
+              return ListView(
+                children: [
+                  _buildCategoryList('Ayakkabılar', ayakkabiDocuments),
+                ],
+              );
+            } else if (snapshot.hasError) {
+              return Text('Hata: ${snapshot.error}');
+            }
+            return CircularProgressIndicator();
+          },
+        ),
       ),
     );
   }
