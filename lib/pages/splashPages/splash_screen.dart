@@ -75,7 +75,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
       AssetPathConstant().loginAssethPath,
       height: size.height,
       width: size.width,
-      fit: BoxFit.cover, //ekranın tamamına sığsın
+      fit: BoxFit.cover,
     );
   }
 
@@ -147,7 +147,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
           borderRadius: BorderRadius.circular(70),
         ),
         elevation: 10,
-        color: const Color(0xffF8E8EE),
+        color: Colors.blueGrey.shade100,
         child: SizedBox(
           height: 60,
           width: 250,

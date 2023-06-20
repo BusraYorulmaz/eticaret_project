@@ -13,16 +13,15 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
+    
       controller: mycontroller,
       validator: (value) {
         if (value!.isEmpty) {
           return "the $labledtext is required";
         }
       },
-      
       decoration: InputDecoration(
-        
+      
         labelText: labledtext,
         hintText: hintedtext,
         enabledBorder: const OutlineInputBorder(

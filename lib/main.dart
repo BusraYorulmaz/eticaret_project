@@ -1,6 +1,7 @@
 import 'package:eticaret_project/ceviri.dart';
 import 'package:eticaret_project/pages/adminPages/adminPage.dart';
 import 'package:eticaret_project/pages/userPages/base_view.dart';
+import 'package:eticaret_project/pages/userPages/profile_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: AdminPage(),
+      home: BaseView(),
     );
   }
 }

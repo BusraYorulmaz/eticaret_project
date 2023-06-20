@@ -18,28 +18,10 @@ class _ProfileViewState extends State<ProfileView> {
   List<ProfileMenuModel> menuItems = [];
   //File? selectedImage;
   final String kvkk =
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper eget duis at tellus at urna condimentum mattis. Dolor sed viverra ipsum nunc aliquet. Et tortor consequat id porta nibh venenatis cras. Aliquet lectus proin nibh nisl condimentum id venenatis a condimentum. Ac odio tempor orci dapibus ultrices in iaculis nunc. Nibh mauris cursus mattis molestie. Donec enim diam vulputate ut. Nisl vel pretium lectus quam id leo in vitae. Fermentum iaculis eu non diam phasellus. Lacus laoreet non curabitur gravida. Sed sed risus pretium quam vulputate dignissim suspendisse in. Nunc vel risus commodo viverra maecenas accumsan lacus. Non consectetur a erat nam at lectus urna duis. Nam at lectus urna duis convallis convallis.';
+      'Lorem ipsum dolor sit amet.  Sed sed risus pretium quam vulputate dignissim suspendisse in. Nunc vel risus commodo viverra maecenas accumsan lacus. Non consectetur a erat nam at lectus urna duis. Nam at lectus urna duis convallis convallis.';
 
   void initialize() {
     menuItems.addAll([
-      ProfileMenuModel(
-          leading: Icons.edit_note_rounded,
-          text: "edit_profile".tr,
-          onTap: () {
-            //   Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileEditView()));
-          }),
-      ProfileMenuModel(
-          leading: Icons.lock,
-          text: "change_password".tr,
-          onTap: () {
-            //   Navigator.push(context, MaterialPageRoute(builder: (context) => const PasswordUpdateView()));
-          }),
-      ProfileMenuModel(
-          leading: Icons.shopify_rounded,
-          text: "previous_orders".tr,
-          onTap: () {
-            //  Navigator.push(context, MaterialPageRoute(builder: (context) => const PreviousOrdersView()));
-          }),
       ProfileMenuModel(
           leading: Icons.text_fields_rounded,
           text: "kvkk_and_terms_of_use".tr,

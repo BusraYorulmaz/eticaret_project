@@ -28,7 +28,7 @@ class _ProductListState extends State<ProductList> {
       child: Column(
         children: [
           Container(
-            color: Color(0xffF8E8EE),
+            color: Colors.blueGrey.shade100,
             height: height,
             child: StreamBuilder(
               stream: widget._urun.snapshots(),

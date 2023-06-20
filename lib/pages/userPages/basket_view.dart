@@ -22,9 +22,9 @@ class _BasketViewState extends State<BasketView> {
       appBar: AppBar(
         title: Text("basket".tr),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.location_on))
-        ],
+        // actions: [
+        //   IconButton(onPressed: () {}, icon: const Icon(Icons.location_on))
+        // ],
       ),
       body: ListView(
         padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -35,20 +35,24 @@ class _BasketViewState extends State<BasketView> {
           ),
           const SizedBox(height: 16),
           urunListe(
-              aciklama:
-                  "When an unknown printer took a galley of type it to make a type specimen book",
+              aciklama: "Kıyafet",
               adet: "2",
-              fiyat: "70,45",
-              isim: "Kıyafet 1",
+              fiyat: "400",
+              isim: "Oduncu Gömleği",
               url: "assets/images/gomlek1.jpg"),
           urunListe(
-              aciklama:
-                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+              aciklama: "Ayakkabı",
               adet: "3",
-              fiyat: "30,50",
-              isim: "Kıyafet 2",
-              url: "assets/images/gomlek2.jpg"),
-          const SizedBox(height: 195),
+              fiyat: "1050",
+              isim: "Converse",
+              url: "assets/images/converse.jpg"),
+          urunListe(
+              aciklama: "Kıyafetler",
+              adet: "3",
+              fiyat: "350",
+              isim: "Gömlek",
+              url: "assets/images/gomlek3.jpg"),
+          const SizedBox(height: 10),
           Row(
             children: [
               Column(
@@ -62,7 +66,7 @@ class _BasketViewState extends State<BasketView> {
                     ),
                   ),
                   const Text(
-                    "1456.99 ₺",
+                    "1800 ₺",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -74,13 +78,7 @@ class _BasketViewState extends State<BasketView> {
               Expanded(
                   child: CustomButton(
                 text: "complete_the_order".tr,
-                onTap: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => const BasketView()),
-                    (route) => false,
-                  );
-                },
+                onTap: () {},
               )),
             ],
           ),
@@ -117,7 +115,7 @@ Widget urunListe(
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(18.0),
             child: Row(
               children: [
                 ClipRRect(

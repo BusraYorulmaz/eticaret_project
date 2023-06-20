@@ -22,7 +22,7 @@ class _WidgetUserAndRegisterState extends State<WidgetUserAndRegister> {
       length: 2,
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Color(0xffF8E8EE),
+          backgroundColor: Colors.blueGrey.shade100,
           body: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
@@ -49,9 +49,9 @@ class _WidgetUserAndRegisterState extends State<WidgetUserAndRegister> {
                 ),
                 SliverToBoxAdapter(
                   child: TabBar(
-                    labelColor: Colors.pink.shade200,
-                    unselectedLabelColor: Colors.black,
-                    indicatorColor: Colors.pink.shade200,
+                    labelColor: Colors.deepPurple,
+                    unselectedLabelColor: Colors.white,
+                    indicatorColor: Colors.deepPurple,
                     tabs: [
                       Tab(
                         icon: const Icon(Icons.account_circle_rounded),
@@ -102,12 +102,6 @@ class _UserLoginPageState extends State<UserLoginPage> {
     } catch (e) {
       debugPrint(e.toString() + "hatali".tr);
       warningPopup(hataMetni: "hatali".tr);
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) => WidgetUserAndRegister(),
-      //   ),
-      // );
     }
   }
 
@@ -140,7 +134,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffF8E8EE),
+        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -156,12 +150,10 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
-                      
                       controller: _emailController, //email kontrolü
                       cursorColor: Colors.pink,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        
                         prefixIcon: const Icon(Icons.email),
                         border: const OutlineInputBorder(),
                         labelText: 'eposta'.tr,
@@ -267,7 +259,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffF8E8EE),
+        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Padding(

@@ -18,9 +18,9 @@ class _ClothesPageState extends State<ClothesPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xffF8E8EE),
+        backgroundColor: Colors.blueGrey.shade100,
         appBar: AppBar(
-          title: const Text("Kıyafetler"),
+          title: const Text("KIYAFETLER"),
           centerTitle: true,
         ),
         body: StreamBuilder<QuerySnapshot>(
@@ -34,7 +34,7 @@ class _ClothesPageState extends State<ClothesPage> {
 
               return ListView(
                 children: [
-                  _buildCategoryList('Kıyafet', kiyafetDocuments),
+                  _buildCategoryList('KIYAFETLER', kiyafetDocuments),
                 ],
               );
             } else if (snapshot.hasError) {

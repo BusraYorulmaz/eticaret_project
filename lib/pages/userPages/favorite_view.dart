@@ -19,9 +19,6 @@ class _FavoriteViewState extends State<FavoriteView> {
       appBar: AppBar(
         title: Text("favorites_".tr),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.location_on))
-        ],
       ),
       body: SafeArea(
         child: GridView.builder(
@@ -32,7 +29,7 @@ class _FavoriteViewState extends State<FavoriteView> {
             childAspectRatio: 0.78,
           ),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          itemCount: 4,
+          itemCount: 1,
           itemBuilder: (context, index) {
             return Stack(
               clipBehavior: Clip.none,
@@ -54,7 +51,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                             padding: const EdgeInsets.only(
                                 left: 8, right: 8, top: 8, bottom: 4),
                             child: Banner(
-                              message: "80,99 ₺",
+                              message: "800 ₺",
                               location: BannerLocation.bottomEnd,
                               color: AppColor.primary,
                               textStyle: const TextStyle(
@@ -62,19 +59,19 @@ class _FavoriteViewState extends State<FavoriteView> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: Image.asset(
-                                  "assets/images/ayakkabı1.png",
+                                  "assets/images/bspor.jpg",
                                   fit: BoxFit.cover,
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
+                        const Padding(
+                          padding: EdgeInsets.only(
                               left: 12, right: 12, top: 2, bottom: 4),
                           child: Text(
-                            "product".tr,
-                            style: const TextStyle(
+                            "Beyaz Spor Ayakkabı",
+                            style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.w500),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,

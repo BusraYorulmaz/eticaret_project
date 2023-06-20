@@ -100,7 +100,7 @@ class _ManageProductState extends State<ManageProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8E8EE),
+      backgroundColor: Colors.white,
       appBar: AppBar(
           title: iseditingmode == true
               ? const Text("Editing Product")

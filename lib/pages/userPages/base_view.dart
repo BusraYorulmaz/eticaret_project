@@ -25,18 +25,18 @@ class _BaseViewState extends State<BaseView> {
         body: const HomePage(),
         index: 0),
     BottomNavigationbarModel(
-        icon: Icons.shopping_bag_rounded,
+        icon: Icons.shopping_basket,
         title: "basket".tr,
         body: const BasketView(),
         index: 1),
     BottomNavigationbarModel(
-        icon: Icons.shopping_bag_rounded,
+        icon: Icons.favorite,
         title: "favorites".tr,
         body: const FavoriteView(),
         index: 2),
     BottomNavigationbarModel(
-        icon: Icons.shopping_bag_rounded,
-        title: "profile".tr,
+        icon: Icons.settings,
+        title: "settings",
         body: const ProfileView(),
         index: 3),
   ];
